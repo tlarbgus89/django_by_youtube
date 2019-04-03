@@ -7,6 +7,18 @@ from django.core.urlresolvers import reverse
 # Create your models here.
 # MVC MODEL VIEW CONTROLLER
 
+
+
+#####################################
+class Keywords(models.Model):
+    keyword = models.CharField(max_length=120)
+
+    def __str__(self):
+        return self.keyword
+#####################################
+
+
+
 def upload_location(instance, filename):
     return "%s/%s" %(instance.id, filename)
 

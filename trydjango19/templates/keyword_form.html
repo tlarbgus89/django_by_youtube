@@ -1,0 +1,17 @@
+<!--<!DOCTYPE html>-->
+<html>
+
+
+
+<body>
+    <title>AI 판례검색</title>
+    <h1>form</h1>
+
+<form method = 'POST' action="">{% csrf_token %}
+{{ form.as_p }}
+<input type='submit' class='btn btn-default' value='키워드 검색' />
+</form>
+
+
+</body>
+</html>

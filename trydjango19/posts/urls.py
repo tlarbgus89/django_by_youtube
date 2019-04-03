@@ -8,6 +8,8 @@ from .views import (
 	post_detail,
 	post_update,
 	post_delete,
+	keyword_create,
+	keyword_update,
 	)
 
 urlpatterns = [
@@ -18,5 +20,7 @@ urlpatterns = [
 	url(r'^(?P<id>\d+)/delete/$', post_delete),
 	#url(r'^posts/$', "<appname>.views.<function_name>"),
 	url(r'^contact/', views.contact, name='contact'),
+	url(r'^keywords/$', keyword_create),
+	# url(r'^keywords/edit/$', keyword_update, name='kupdate'),
 
 ]
