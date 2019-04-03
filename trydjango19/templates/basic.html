@@ -1,16 +1,27 @@
+
+
+
+
+
+
 {% extends "base.html" %}
 
 {% block content %}
-    <!--{% for c in content %}-->
-        <!--<p>{{c}}</p>-->
+    {% for c in content %}
+        <br><br><p>{{c}}</p>
+    {% endfor %}
+
+    <!--{% for c in content2 %}-->
+        <!--<p>{{c}}</p><br><br><br><br>-->
     <!--{% endfor %}-->
 
-    {% for post in posts %}
-        {{ post.title }}<br>
-        {{ post.subtitle }}<br><br>
-        {{ post.content }}<br><br>
-    {% endfor %}
+
+    <!--{% for post in posts %}-->
+
+        <!--<br><br>{{ post.title }}<br>-->
+        <!--{{ post.subtitle }}<br><br>-->
+        <!--{{ post.content }}<br><br><br><br><br><br>-->
+    <!--{% endfor %}-->
 
 
 {% endblock %}
-
