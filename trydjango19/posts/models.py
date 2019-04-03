@@ -11,8 +11,9 @@ def upload_location(instance, filename):
     return "%s/%s" %(instance.id, filename)
 
 class Post(models.Model):
-    title = models.CharField(max_length=120)
-    subtitle = models.CharField(max_length=120, null=True)
+    fileid = models.CharField(max_length=120, null=True)
+    title = models.TextField(null=True)
+    subtitle = models.TextField(null=True)
 
     # image = models.ImageField(upload_to=upload_location,
     #         null=True, blank=True,
@@ -23,8 +24,8 @@ class Post(models.Model):
     # width_field = models.IntegerField(default=0)
 
     content = models.TextField()
-    content2 = models.TextField(null=True)
-    content3 = models.TextField(null=True)
+    # content2 = models.TextField(null=True)
+    # content3 = models.TextField(null=True)
 
     updated = models.DateTimeField(auto_now=True, auto_now_add=False, null=True)
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True, null=True)
