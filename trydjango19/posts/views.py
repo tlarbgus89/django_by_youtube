@@ -124,27 +124,17 @@ from .models import Post, Keywords
 def contact(request):
 
 	from gensim.models import Doc2Vec
-	import pickle
-	import gensim
 
-	# with open("/Users/sim_macbookpro/projects/project_judical_precednet_not_py/download_j_precednet/jp_by_4000/for_03/train_corpus_pickle","rb") as fp:
-	# 	train_corpus = pickle.load(fp)
-	#
 	model = Doc2Vec.load('/Users/sim_macbookpro/projects/project_judical_precednet_not_py/download_j_precednet/jp_by_4000/for_03/model_mecab_noun_79403')
-	# model = gensim.models.doc2vec.Doc2Vec(tratravector_size=50, min_count=2, epochs=40)
-
-	#
-	# with open("/Users/sim_macbookpro/projects/project_judical_precednet_not_py/download_j_precednet/jp_by_4000/for_03/ranks_pickle","rb") as fp:
-	# 	ranks = pickle.load(fp)
-	#
-	# with open("/Users/sim_macbookpro/projects/project_judical_precednet_not_py/download_j_precednet/jp_by_4000/for_03/second_ranks_pickle","rb") as fp:
-	# 	second_ranks = pickle.load(fp)
 
 	str_word = Keywords.objects.order_by('id').last()
 	list_word = str(str_word).split(' ')
-	list_word2 = ('').join(list_word)
-	test_corpus = list_word2.split(',')
+	test_corpus=[]
+	for words in list_word:
+		test_corpus.append(words.strip())
+	print(len(test_corpus[0]))
 	print(test_corpus)
+
 
 	inferred_vector = model.infer_vector(test_corpus)
 	sims = model.docvecs.most_similar([inferred_vector], topn=len(model.docvecs))
@@ -251,13 +241,16 @@ def post_detail(request, id=None):
 def post_list(request):
 	queryset_list = Post.objects.all() #.order_by("-timestamp")
 
-	query = request.GET.get("q")
-	if query:
-		queryset_list = queryset_list.filter(
-			Q(title__icontains=query)|
-			Q(content__icontains=query)|
-			Q(subtitle__icontains=query)
-			).distinct()
+	query4 = request.GET.get("q")
+	query3 = str(query4)
+	query2 = query3.split(' ')
+	for query in query2:
+		if query:
+			queryset_list = queryset_list.filter(
+				Q(title__icontains=query)|
+				Q(content__icontains=query)|
+				Q(subtitle__icontains=query)
+				).distinct()
 
 
 	paginator = Paginator(queryset_list, 10) # Show 25 contacts per page

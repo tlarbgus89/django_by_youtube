@@ -15,13 +15,15 @@
 </form>
 
     {% for c in key_adding %}
-        <br><br><p>{{c}}</p>
+        {{c}}
     {% endfor %}
 
-    {{ key }}<br><br><p>
+    {% for k in key %}
+   <li> {{k}}</li>
+    {% endfor %}
 
     {% for c in content %}
-        <br><br><p>{{c}}</p>
+        <br><br><p><li>{{c}}</li></p>
     {% endfor %}
 
     {% for c in content2 %}

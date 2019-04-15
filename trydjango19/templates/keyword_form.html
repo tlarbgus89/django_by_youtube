@@ -1,17 +1,57 @@
 <!--<!DOCTYPE html>-->
 <html>
+    <head>
+        <title>AI 판례검색</title>
+
+    </head>
+
+    <style type="text/css">
+
+        body {
+            padding: 0;
+            margin: 0;
+            background-color: #FFD200;
+            color: #1A1A1D;
+
+        }
+        h1 {
+            font-size: 3em;
+            padding: 0;
+            margin: 290;
+            text-align: center;
+            font-family:'돋음', Dotum, AppleGothic,Arial,sans-serif;
+            <!--position: absolute;-->
+            <!--top: 50%-->
+            <!--left: 50%;-->
+            <!--transform: translateX(-50%) translateY(-50%);-->
+        }
+        p {
+            position: absolute;
+            transform: translateX(-50%) translateY(-50%);
+            left: 50%;
+            top: 50%
+        }
+        input {
+            position: absolute;
+            transform: translateX(-50%) translateY(-50%);
+            color: #1A1A1D;
+            left: 50%;
+            top: 60%
+
+        }
+    </style>
 
 
 
-<body>
-    <title>AI 판례검색</title>
-    <h1>form</h1>
 
-<form method = 'POST' action="">{% csrf_token %}
-{{ form.as_p }}
-<input type='submit' class='btn btn-default' value='키워드 검색' />
-</form>
+    <body>
 
+        <h1>AI 판례검색</h1>
 
-</body>
+        <form method = 'POST' action="">{% csrf_token %}
+        <p>{{ form.as_p }}</p>
+        <!--<input type="text" name="q" placeholder="키워드 검색" value="{{ request.GET.q }}" />-->
+        <input type='submit' class='btn btn-default' value='키워드 검색'  />
+        </form>
+    </body>
 </html>
