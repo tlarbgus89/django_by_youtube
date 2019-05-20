@@ -111,12 +111,13 @@ for i, name in enumerate(file_name):
 ### start : commit content
 for i in range(0, len(file_name)):
     a = i
-    b = content[i]
+    b = file_name[i]
+    c = content[i]
     # Insert Multiple Records
 
-    sqlStuff = "INSERT INTO posts_post2 (fileid, content) VALUES (%s, %s)"
+    sqlStuff = "INSERT INTO posts_sentence (s_id, s_fileid, s_content) VALUES (%s, %s, %s)"
     records = [
-        (a, b)
+        (a, b, c)
     ]
     my_cursor.executemany(sqlStuff, records)
     mydb.commit()

@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Post, Keywords
+from .models import Post, Keywords, Sentence
 
 class PostModelAdmin(admin.ModelAdmin):
 	list_display = ["title", "updated", "timestamp"]
@@ -16,3 +16,4 @@ class PostModelAdmin(admin.ModelAdmin):
 
 admin.site.register(Post, PostModelAdmin)
 admin.site.register(Keywords)
+admin.site.register(Sentence)

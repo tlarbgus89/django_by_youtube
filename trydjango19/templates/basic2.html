@@ -14,21 +14,21 @@
          name="Submit" id="frm1_submit" />
 </form>
 
-    {% for c in key_adding %}
+    {% for c in key_adding2 %}
         {{c}}
     {% endfor %}
 
-    {% for k in key %}
+    {% for k in key2 %}
    <li> {{k}}</li>
     {% endfor %}
 
-    {% for c in content %}
+    {% for c in content2 %}
         <br><br><p><li>{{c}}</li></p>
     {% endfor %}
 
-    {% for c in content2 %}
-        <p>{{c}}</p><br><br><br><br>
-    {% endfor %}
+    <!--{% for c in content2 %}-->
+        <!--<p>{{c}}</p><br><br><br><br>-->
+    <!--{% endfor %}-->
 <br><br>
 <form action="/keywords" method="get">
     <input type="submit" value="검색으로 이동"

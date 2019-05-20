@@ -9,7 +9,10 @@ from .views import (
 	post_update,
 	post_delete,
 	keyword_create,
-	keyword_update,
+	keyword_sentence,
+	contact
+	# sentences,
+	# jp_search,
 	)
 
 urlpatterns = [
@@ -20,7 +23,14 @@ urlpatterns = [
 	url(r'^(?P<id>\d+)/delete/$', post_delete),
 	#url(r'^posts/$', "<appname>.views.<function_name>"),
 	url(r'^contact/', views.contact, name='contact'),
+	url(r'^keywords/contact/', views.contact, name='contact'),
+
 	url(r'^keywords/$', keyword_create),
+	# url(r'^sentences/$', sentences),
+	url(r'^/keywords/sentences/$', keyword_sentence),
+
+	# url(r'^/search/$', jp_search),
+
 	# url(r'^keywords/edit/$', keyword_update, name='kupdate'),
 
 ]

@@ -1,3 +1,4 @@
+
 from __future__ import unicode_literals
 
 from django.db import models
@@ -8,15 +9,26 @@ from django.core.urlresolvers import reverse
 # MVC MODEL VIEW CONTROLLER
 
 
-
+# -*- coding: utf-8 -*-
 #####################################
 class Keywords(models.Model):
     keyword = models.CharField(max_length=120)
+    키워드검색 = models.CharField(max_length=120, null=True)
+    유사어검색 = models.CharField(max_length=120, null=True)
 
     def __str__(self):
         return self.keyword
 #####################################
 
+#####################################
+class Sentence(models.Model):
+    s_id = models.CharField(max_length=120, null=True)
+    s_fileid = models.CharField(max_length=120, null=True)
+    s_content = models.TextField(null=True)
+
+    def __str__(self):
+        return self.s_fileid
+#####################################
 
 
 def upload_location(instance, filename):
